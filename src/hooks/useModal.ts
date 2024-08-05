@@ -3,6 +3,7 @@ import { useModalStore } from "../store/useModalStore";
 
 interface ModalProps {
   onClose?: () => void;
+  onConfirm?: () => void;
 }
 
 interface UseModal {

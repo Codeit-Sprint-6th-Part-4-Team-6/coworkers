@@ -6,7 +6,7 @@ interface WarnModalProps {
   title: string;
   content?: string;
   buttonText: string;
-  onConfirm: () => void;
+  onConfirm?: () => void;
   onClose?: () => void;
 }
 

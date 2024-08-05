@@ -7,7 +7,7 @@ declare module "@coworkers-types" {
 
   type BaseCommentUserInfo = BaseCommentEntity & {
     teamId: string;
-    image: string;
+    image: string | null;
     nickname: string;
     email: string;
   };
@@ -22,9 +22,22 @@ declare module "@coworkers-types" {
     content: string;
   };
 
-  export type Comments = [{ user: CommentWriterInfo } & CommentInfo];
+  export type CommentType = { user: CommentWriterInfo } & CommentInfo;
+
+  export type Comments = CommentType[];
 
   export type CommentRequest = {
     content: string;
+  };
+
+  export type ArticleWriterInfo = {
+    id: number;
+    nickname: string;
+    image: string | null;
+  };
+
+  export type ArticleComment = BaseCommentEntity & {
+    content: string;
+    writer: ArticleWriterInfo;
   };
 }

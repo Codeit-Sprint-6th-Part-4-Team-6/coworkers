@@ -29,10 +29,10 @@ export default function NameTag({ type, image, name, email, onClick }: NameTagPr
       ? "grid grid-cols-[auto_1fr] grid-rows-[auto_auto] items-center gap-x-8 md:gap-x-12 gap-y-6 md:gap-y-2"
       : "flex items-center",
     {
-      "max-w-120": type === "default-6" || type === "default-12" || type === "profile",
+      "max-w-200 md:max-w-none": type === "default-6" || type === "default-12",
       "gap-6 md:gap-12": type === "default-6",
       "gap-12": type === "default-12",
-      "gap-8": type === "profile",
+      "gap-8 max-w-140": type === "profile",
       "max-w-108 md:max-w-146 lg:max-w-312": type === "email",
       "cursor-pointer": onClick,
     }

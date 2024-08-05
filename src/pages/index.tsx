@@ -1,11 +1,32 @@
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
+import Comment from "@components/commons/Comment";
 import Input from "@components/commons/Input";
 import Textarea from "@components/commons/TextArea";
 
 export default function Home() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const comment = {
+    user: {
+      teamId: "string",
+      image:
+        "https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Coworkers/user/82/9791191214376.jpg",
+      nickname: "이미서있는임희서",
+      updatedAt: "2024-08-02T11:47:46.644Z",
+      createdAt: "2024-08-02T11:47:46.644Z",
+      encryptedPassword: "string",
+      email: "string",
+      id: 0,
+    },
+    userId: 0,
+    taskId: 0,
+    updatedAt: "2024-08-02T11:47:46.644Z",
+    createdAt: "2024-08-02T11:47:46.644Z",
+    content:
+      "법인 설립 서비스 관련 링크 첨부 드려요법인 설립 서비스 관련 링크 첨부 드려요법인 설립 서비스 관련 링크 첨부 드려요법인 설립 서비스관련 링크 첨부 드려요\nhttps://www.codeit.kr 하진짜 빡치긴하네요\n하하하하",
+    id: 0,
+  };
 
   useEffect(() => setMounted(true), []);
 
@@ -41,9 +62,10 @@ export default function Home() {
         placeholder="search x button render test입니다"
       />
       <Input name="test" placeholder="error test입니다" errorMessage="testing" />
-      <Textarea type="innerButton" placeholder="댓글을 달아주세요" height={50} />
+      {/* <Textarea type="innerButton" placeholder="댓글을 달아주세요" height={50} />
       <Textarea type="small" placeholder="댓글을 달아주세요" height={74} />
-      <Textarea type="big" placeholder="댓글을 달아주세요" height={104} />
+      <Textarea type="big" placeholder="댓글을 달아주세요" height={104} /> */}
+      <Comment type="article" comment={comment} onEdit={() => 1} />
     </main>
   );
 }

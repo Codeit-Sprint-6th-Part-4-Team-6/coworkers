@@ -3,6 +3,7 @@ import create from "zustand";
 
 interface ModalProps {
   onClose?: () => void;
+  onConfirm?: () => void;
 }
 
 interface ModalState {
