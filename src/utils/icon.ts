@@ -38,6 +38,10 @@ import IconRepairSmall from "@icons/icon_repair_small.svg";
 import IconRepeat from "@icons/icon_repeat.svg";
 import IconSearch from "@icons/icon_search.svg";
 import IconTime from "@icons/icon_time.svg";
+import IconToastDanger from "@icons/icon_toast_danger.svg";
+import IconToastInfo from "@icons/icon_toast_info.svg";
+import IconToastSuccess from "@icons/icon_toast_success.svg";
+import IconToastWarning from "@icons/icon_toast_warning.svg";
 import IconToggle from "@icons/icon_toggle.svg";
 import IconUser from "@icons/icon_user.svg";
 import IconVisibilityOff from "@icons/icon_visibility_off.svg";
@@ -77,6 +81,10 @@ export {
   IconRepairSmall,
   IconRepeat,
   IconTime,
+  IconToastDanger,
+  IconToastInfo,
+  IconToastSuccess,
+  IconToastWarning,
   IconToggle,
   IconUser,
   IconVisibilityOff,

@@ -1,5 +1,6 @@
 import { AuthResponse, LoginRequest, SignUpRequest } from "@coworkers-types";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useToast } from "@hooks/useToast";
 import { loginUser, signUpUser } from "@api/authApi";
 import { useAuth } from "./useAuth";
 
@@ -14,17 +15,17 @@ type AuthRequest = SignUpRequest | LoginRequest;
 export const useAuthHandler = <T extends AuthRequest>(values: T, isRegister: boolean = false) => {
   const queryClient = useQueryClient();
   const { login } = useAuth();
+  const { toast } = useToast();
 
   const loginMutation = useMutation({
     mutationFn: (loginValue: LoginRequest) => loginUser(loginValue),
     onSuccess: (data: AuthResponse) => {
-      // TODO: 토스트
+      toast("success", "로그인에 성공하셨습니다.");
       login(data);
       queryClient.setQueryData(["user"], data.user);
     },
     onError: (error: any) => {
-      // TODO: 토스트?
-      alert(error.response.data.message);
+      toast("danger", error.response.data.message);
     },
   });
 
@@ -34,18 +35,19 @@ export const useAuthHandler = <T extends AuthRequest>(values: T, isRegister: boo
     if (isRegister) {
       try {
         await signUpUser(values as SignUpRequest);
+        toast("success", "회원가입에 성공하셨습니다.");
+        const loginData = {
+          email: values.email,
+          password: values.password,
+        };
+
+        loginMutation.mutate(loginData);
       } catch (error: any) {
-        // TODO: 토스트
-        alert(error.response.data.message);
+        toast("danger", error.response.data.message);
       }
+    } else {
+      loginMutation.mutate(values);
     }
-
-    const loginData = {
-      email: values.email,
-      password: values.password,
-    };
-
-    loginMutation.mutate(loginData);
   };
 
   return {

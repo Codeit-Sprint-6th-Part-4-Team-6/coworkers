@@ -1,4 +1,4 @@
-declare module '@coworkers-types' {
+declare module "@coworkers-types" {
   export type Message = {
     message: string;
   };
@@ -10,5 +10,10 @@ declare module '@coworkers-types' {
   export type Profile = {
     image?: string;
     name?: string;
+  };
+
+  export type Toast = {
+    type: "info" | "success" | "warn" | "danger";
+    content: string;
   };
 }

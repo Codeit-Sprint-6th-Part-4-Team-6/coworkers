@@ -33,11 +33,13 @@ const config: Config = {
         'gradient-end': '#A3E635',
       },
       point: {
+        green: '#10B981',
         purple: '#A855F7',
         blue: '#3B82F6',
         cyan: '#06B6D4',
         pink: '#EC4899',
         rose: '#F43F5E',
+        red: '#DC2626',
         orange: '#F97316',
         yellow: '#EAB308',
       },
