@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
+import Dropdown from "@components/commons/Dropdown";
 import Input from "@components/commons/Input";
 import EditDeletePopover from "@components/commons/Popover/EditDeletePopover";
 import Textarea from "@components/commons/TextArea";
@@ -7,6 +8,9 @@ import Textarea from "@components/commons/TextArea";
 export default function Home() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+
+  const [repeatValue, setRepeatValue] = useState<string>("");
+  const [sortValue, setSortValue] = useState<string>("latest");
 
   useEffect(() => setMounted(true), []);
   // test@test.com test2718!
@@ -50,6 +54,26 @@ export default function Home() {
         <EditDeletePopover icon="gear" handleModify={() => {}} handleDelete={() => {}} />
         <EditDeletePopover icon="kebabLarge" handleModify={() => {}} handleDelete={() => {}} />
         <EditDeletePopover icon="kebabSmall" handleModify={() => {}} handleDelete={() => {}} />
+
+        <Dropdown selectedValue={repeatValue} onSelect={(value) => setRepeatValue(value)}>
+          <Dropdown.Toggle>반복 안함</Dropdown.Toggle>
+          <Dropdown.Wrapper>
+            <Dropdown.Item value="">반복 안함</Dropdown.Item>
+            <Dropdown.Item value="ONCE">한 번</Dropdown.Item>
+            <Dropdown.Item value="DAILY">매일</Dropdown.Item>
+            <Dropdown.Item value="WEEKLY">주 반복</Dropdown.Item>
+            <Dropdown.Item value="MONTHLY">월 반복</Dropdown.Item>
+          </Dropdown.Wrapper>
+        </Dropdown>
+
+        <Dropdown selectedValue={sortValue} onSelect={(value) => setSortValue(value)}>
+          <Dropdown.Toggle>최신순</Dropdown.Toggle>
+          <Dropdown.Wrapper>
+            <Dropdown.Item value="latest">최신순</Dropdown.Item>
+            <Dropdown.Item value="oldest">오래된순</Dropdown.Item>
+            <Dropdown.Item value="likes">좋아요 많은순</Dropdown.Item>
+          </Dropdown.Wrapper>
+        </Dropdown>
       </div>
     </main>
   );

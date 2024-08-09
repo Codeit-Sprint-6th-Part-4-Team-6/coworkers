@@ -3,6 +3,7 @@ import classNames from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import Button from "@components/commons/Button";
 
 const PopoverContext = createContext({
   isOpen: false,
@@ -78,7 +79,7 @@ function Wrapper({
   const { isOpen } = useContext(PopoverContext);
 
   const wrapperClassName = classNames(
-    `${popDirection === "left" ? "right-0" : ""} absolute top-30 rounded-12 border border-solid border-background-tertiary bg-background-secondary px-16 py-8 text-center box-border max-w-218 min-w-120 md:min-w-135`
+    `${popDirection === "left" ? "right-0" : ""} z-50 absolute top-30 rounded-12 border border-solid border-background-tertiary bg-background-secondary px-16 py-8 text-center box-border max-w-218 min-w-120 md:min-w-135`
   );
 
   return (
@@ -116,7 +117,7 @@ function Item({ children, onClick }: { children: React.ReactNode; onClick: () =>
   );
 }
 
-function InnerButton({ children, onClick }: { children: React.ReactNode; onClick: () => void }) {
+function InnerButton({ onClick }: { onClick: () => void }) {
   const { closePopover } = useContext(PopoverContext);
 
   const handleClick = () => {
@@ -124,17 +125,16 @@ function InnerButton({ children, onClick }: { children: React.ReactNode; onClick
   };
 
   return (
-    <button
-      type="button"
+    <Button
+      buttonStyle="transparent-white"
+      icon="plus"
       onClick={() => {
         onClick();
         handleClick();
       }}
-      className="mb-10 box-border flex h-[48px] w-[186px] cursor-pointer items-center justify-center gap-5 text-nowrap rounded-12 border border-solid px-8 py-7 text-lg hover:bg-background-tertiary"
     >
-      <Image className="block" src="/icons/icon_plus.svg" alt="plus btn" width={16} height={16} />
-      <p className="mt-3 text-nowrap">{children}</p>
-    </button>
+      팀 생성하기
+    </Button>
   );
 }
 
