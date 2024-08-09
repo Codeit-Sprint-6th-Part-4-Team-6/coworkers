@@ -3,6 +3,7 @@ import classNames from "classnames";
 type LabelProps = {
   type?: "none" | "label" | "essential";
   content: string;
+  className?: string;
   htmlFor?: string;
   marginBottom?: 8 | 12 | 16;
   center?: boolean;
@@ -21,6 +22,7 @@ type LabelProps = {
 export default function Label({
   type = "none",
   content,
+  className,
   htmlFor,
   marginBottom,
   center,
@@ -32,7 +34,7 @@ export default function Label({
   };
 
   const classnames = classNames(
-    "font-medium text-text-primary block",
+    `font-medium text-text-primary block ${className}`,
     type === "essential" ? "text-md md:text-lg" : "text-lg",
     marginBottom ? marginClasses[marginBottom] : "",
     {

@@ -3,7 +3,7 @@
     height="40px" viewBox="0 0 40 40" version="1.1">
     <g id="surface1">
         <path
-            style="fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(39.215686%,45.490196%,54.509804%);stroke-opacity:1;stroke-miterlimit:4;"
+            style="fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(11.764706%,16.078431%,23.137255%);stroke-opacity:1;stroke-miterlimit:4;"
             d="M 6 12 L 10 8 L 6 4 " transform="matrix(2.5,0,0,2.5,0,0)" />
     </g>
 </svg>

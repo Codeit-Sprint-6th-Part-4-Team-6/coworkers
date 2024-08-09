@@ -22,6 +22,8 @@
   ],
   "rules": {
     "import/no-extraneous-dependencies": ["warn", { "devDependencies": true }],
+    "no-lonely-if": "off",
+    "no-plusplus": "off",
     "global-require": "off",
     "func-names": "off",
     "@typescript-eslint/no-explicit-any": "off",

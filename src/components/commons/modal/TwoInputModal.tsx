@@ -101,7 +101,7 @@ export default function TwoInputModal({
             placeholder={secondPlaceholder}
             type="small"
             height={80}
-            onChange={firstOnChange as (event: React.ChangeEvent<HTMLTextAreaElement>) => void}
+            onChange={secondOnChange as (event: React.ChangeEvent<HTMLTextAreaElement>) => void}
           />
         )}
       </div>
